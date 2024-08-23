@@ -1,0 +1,20 @@
+# Ignore the Python cache files
+__pycache__/
+*.pyc
+
+# Ignore the Chrome driver
+core/ui/drivers/chromedriver.exe
+
+# Ignore the environment files
+.env
+
+# Ignore the pytest cache
+.pytest_cache/
+
+# Ignore the reports
+reports/
+salida.txt
+# Ignore folders
+.idea
+venv/
+.vscode
