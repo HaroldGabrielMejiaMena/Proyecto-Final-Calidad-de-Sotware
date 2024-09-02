@@ -4,9 +4,9 @@ from selenium.webdriver.common.by import By
 class LoginPage(BasePage):
     
       #Locators
-    USERNAME_FIELD = (By.NAME, "username")
-    PASSWORD_FIELD = (By.NAME, "password")
-    LOGIN_BUTTON = (By.XPATH, '//button[@type="submit"]')
+    USERNAME_FIELD = (By.ID, "Username")
+    PASSWORD_FIELD = (By.ID, "passwordLogin")
+    LOGIN_BUTTON = (By.ID, "buttonLogin")
     
     
     def enter_username(self, username):
