@@ -1,3 +1,3 @@
-BASE_URL = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-USERNAME = "Admin"
-PASSWORD = "admin123"
+BASE_URL = "http://localhost:3033/"
+USERNAME = "admin.user"
+PASSWORD = "External123_"

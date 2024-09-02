@@ -3,7 +3,7 @@
 pip install -r requirements.txt
 
 # Ejecutar las pruebas en paralelo
-pytest - s - m ui_automation - n 4
+pytest -s -m ui_automation -n 4
 
 # Ejecutar las pruebas en un solo Navegador
-pytest - s - m ui_automation 
+pytest -s -m ui_automation 
