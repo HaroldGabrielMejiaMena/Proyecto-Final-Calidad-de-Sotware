@@ -1,30 +1,27 @@
 import requests
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-import config
+import ui_config
+from main.api.assertions.general_assertions.status_code import assert_get_status_code_200
+def get_response_connect_token():
+    url = "http://host.docker.internal:8083/connect/token"
 
+    payload = {
+        'grant_type': 'password',
+        'username': ui_config.USERNAME,
+        'password': ui_config.PASSWORD,
+        'scope': 'openid roles profile adas-v2-api',
+        'client_id': 'adas-v2-spa'
+    }
 
-url = "http://host.docker.internal:8083/connect/token"
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded'
+    }
 
-# Definiendo el payload como un diccionario
-payload = {
-    'grant_type': 'authorization_code',
-    'username': config.USERNAME,
-    'password': config.PASSWORD,
-    'scope': 'openid roles profile dashboard',
-    'client_id': 'adas-v2-spa',
-    'redirect_uri': 'http://localhost:3033/auth/login-oidc'
-}
+    response = requests.post(url, headers=headers, data=payload)
+    assert_get_status_code_200(response)
+    return response.json()
 
-# Si necesitas agregar más campos, simplemente añádelos al diccionario
-# payload['nuevo_campo'] = 'valor'
-
-headers = {
-    'Content-Type': 'application/x-www-form-urlencoded'
-}
-
-# Convertir el diccionario a un formato adecuado para una solicitud POST
-response = requests.post(url, headers=headers, data=payload)
-
-print(response.text)
+def get_token():
+    response_data = get_response_connect_token()
+    token = response_data.get("access_token", None)
+    return token
+    

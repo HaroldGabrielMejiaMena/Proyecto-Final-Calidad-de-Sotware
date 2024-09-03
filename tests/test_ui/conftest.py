@@ -2,7 +2,7 @@ import sys
 import os
 import logging
 import pytest
-import config
+import ui_config
 from core.ui.chrome_driver_manager_scd import ChromeDriverManager
 from main.ui.pages.login_page import LoginPage
 
@@ -38,9 +38,9 @@ def is_user_logged_in(driver):
 @pytest.fixture(scope="session", autouse=True)
 def login(driver):
     login_page = LoginPage(driver)
-    login_page.navigate_to(config.BASE_URL)
+    login_page.navigate_to(ui_config.BASE_URL)
     
     if not is_user_logged_in(driver):
-        login_page.login(config.USERNAME, config.PASSWORD)
+        login_page.login(ui_config.USERNAME, ui_config.PASSWORD)
     else:
         logger.info("Usuario ya logueado. No es necesario hacer login de nuevo.")
