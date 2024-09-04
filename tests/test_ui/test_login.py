@@ -1,7 +1,7 @@
 import pytest
 from core.ui.chrome_driver_manager_scd import ChromeDriverManager
 from main.ui.pages.login_page import LoginPage
-import ui_config
+import config
 from main.ui.pages.buildings_page import BuildingsPage
 import time
 
