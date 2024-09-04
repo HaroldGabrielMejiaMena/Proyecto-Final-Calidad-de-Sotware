@@ -1,3 +1,5 @@
+
+        
 def assert_get_status_code_200(response):
     assert response.status_code == 200
 
@@ -16,3 +18,8 @@ def assert_get_status_code_404(response):
 
 def assert_get_status_code_405(response):
     assert response.status_code == 405
+    
+def assert_response_empty(response):    
+    assert response.text == "", "Expected empty response but got some content."
+ 
+   

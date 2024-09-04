@@ -1,13 +1,13 @@
 import requests
-import ui_config
+import config
 from main.api.assertions.general_assertions.status_code import assert_get_status_code_200
 def get_response_connect_token():
     url = "http://host.docker.internal:8083/connect/token"
 
     payload = {
         'grant_type': 'password',
-        'username': ui_config.USERNAME,
-        'password': ui_config.PASSWORD,
+        'username': config.USERNAME,
+        'password': config.PASSWORD,
         'scope': 'openid roles profile adas-v2-api',
         'client_id': 'adas-v2-spa'
     }
