@@ -19,7 +19,12 @@ def assert_get_status_code_404(response):
 def assert_get_status_code_405(response):
     assert response.status_code == 405
     
+def assert_get_status_code_500(response):
+    assert response.status_code == 500
+    
 def assert_response_empty(response):    
     assert response.text == "", "Expected empty response but got some content."
- 
+    
+def assert_id_not_none(id):
+    assert id is not None
    
