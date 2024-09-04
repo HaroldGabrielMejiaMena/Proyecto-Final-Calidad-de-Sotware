@@ -14,3 +14,9 @@ def generate_city_data(country_id):
         "available": fake.boolean(),
         "countryId": country_id
     }
+
+def generate_department_data(country_id):
+    return {
+        "name": fake.company(),
+        "countryId": country_id
+    }
