@@ -1,5 +1,5 @@
 import pytest
-from main.api.assertions.general_assertions.status_code import assert_get_status_code_200, assert_response_empty,assert_get_status_code_401,assert_get_status_code_400, assert_get_status_code_405, assert_id_not_none
+from main.api.assertions.general_assertions.general_assertions import assert_get_status_code_200, assert_response_empty,assert_get_status_code_401,assert_get_status_code_400, assert_get_status_code_405, assert_id_not_none
 from tests.test_data.countries.country_data import generate_city_data
 from main.api.utils.countries.cities.city import get_city_by_id, post_create_a_city, put_update_city, delete_city
 import requests
