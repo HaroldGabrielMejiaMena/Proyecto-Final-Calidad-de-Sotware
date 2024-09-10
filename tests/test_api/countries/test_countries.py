@@ -68,7 +68,6 @@ def test_create_country_without_token(no_token):
 @pytest.mark.api_automation
 def test_create_country_with_wrong_http_method(headers):
     response = requests.get(f"{config.BASE_URL_BE}/Country", headers=headers)
-    print(f"Status code: {response.status_code}")
     assert_get_status_code_405(response)
 
 
