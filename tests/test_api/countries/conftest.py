@@ -63,7 +63,6 @@ def setup_get_id_country(headers, request):
 
     # Teardown: Eliminar el country después de la prueba
     def teardown():
-        print(f"Eliminando el country con ID: {country_id}")
         delete_country(headers, country_id)
 
     request.addfinalizer(teardown)

@@ -7,8 +7,8 @@ from main.api.assertions.general_assertions.general_assertions import assert_get
 
 # Prueba para crear un AssetType
 @pytest.mark.api_automation
-def test_create_assettype(headers, setup_create_assettype):
-    assettype_id = setup_create_assettype
+def test_create_assettype(headers, setup_create_asset_type):
+    assettype_id = setup_create_asset_type
     assert_id_not_none(assettype_id)
     # Validar que el AssetType fue creado correctamente
     response = get_asset_type_by_id(headers, assettype_id)
@@ -23,8 +23,8 @@ def test_create_assettype(headers, setup_create_assettype):
 
 # Prueba para eliminar un AssetType
 @pytest.mark.api_automation
-def test_delete_assettype(headers, setup_create_assettype):
-    assettype_id = setup_create_assettype
+def test_delete_assettype(headers, setup_create_asset_type):
+    assettype_id = setup_create_asset_type
 
     # Eliminar el AssetType
     response = delete_asset_type(headers, assettype_id)
@@ -48,8 +48,8 @@ def test_get_all_assettypes(headers):
 
 # Prueba para actualizar un AssetType
 @pytest.mark.api_automation
-def test_update_assettype(headers, setup_create_assettype):
-    assettype_id = setup_create_assettype
+def test_update_assettype(headers, setup_create_asset_type):
+    assettype_id = setup_create_asset_type
     updated_name = "string2"
     updated_parAssetCategoryId = 2
 
