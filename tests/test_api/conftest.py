@@ -17,7 +17,8 @@ def invalid_token():
 
 @pytest.fixture(scope="session")
 def valid_token():
-    token = config.token
+    #token = config.token
+    token = get_token()
     return token
 
 

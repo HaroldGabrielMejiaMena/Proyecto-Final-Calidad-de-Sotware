@@ -1,6 +1,6 @@
 import pytest
 from main.api.utils.countries.country import post_create_a_country,put_update_country, delete_country, get_filtered_country
-from main.api.assertions.general_assertions.status_code import assert_get_status_code_200, assert_response_empty,assert_get_status_code_401,assert_get_status_code_400, assert_get_status_code_405
+from main.api.assertions.general_assertions.general_assertions import assert_get_status_code_200, assert_response_empty,assert_get_status_code_401,assert_get_status_code_400, assert_get_status_code_405
 from tests.test_data.countries.country_data import generate_country_data
 import requests
 import config

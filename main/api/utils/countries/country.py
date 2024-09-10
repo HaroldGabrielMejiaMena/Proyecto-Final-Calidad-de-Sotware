@@ -1,7 +1,7 @@
 import requests
 import json
 import config
-from main.api.assertions.general_assertions.status_code import assert_get_status_code_200
+from main.api.assertions.general_assertions.general_assertions import assert_get_status_code_200
 
 
 def post_create_a_country(headers, name, available):

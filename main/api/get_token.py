@@ -1,6 +1,6 @@
 import requests
 import config
-from main.api.assertions.general_assertions.status_code import assert_get_status_code_200
+from main.api.assertions.general_assertions.general_assertions import assert_get_status_code_200
 def get_response_connect_token():
     url = "http://host.docker.internal:8083/connect/token"
 
