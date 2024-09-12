@@ -17,7 +17,6 @@ def invalid_token():
 
 @pytest.fixture(scope="session")
 def valid_token():
-    #token = config.token
     token = get_token()
     return token
 
@@ -93,11 +92,11 @@ def setup_create_country(headers, request):
     country_data = generate_country_data()
     # Crear el country
     response = post_create_a_country(headers, country_data["name"], country_data["available"])
-    assert response.status_code == 200 or response.status_code == 201, f"Error al crear el Country: {response.status_code} - {response.text}"
+    assert response.status_code == 200 
 
     # Obtener el ID filtrando por nombre
     country = get_country_by_name(headers, country_data["name"])
-    assert country is not None, f"No se encontró el Country con el nombre: {country_data['name']}."
+    assert country is not None
     
     country_id = country["id"]
 
