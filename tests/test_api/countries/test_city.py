@@ -62,7 +62,7 @@ def test_delete_city(headers, setup_create_city):
 @pytest.mark.api_automation
 def test_create_city_with_invalid_token(invalid_token, setup_create_country):
     # Usa el country_id generado en el setup
-    _, country_id = setup_create_country
+    country_id = setup_create_country
     country_data = generate_city_data(country_id)
 
     headers = {
@@ -81,7 +81,7 @@ def test_create_city_with_invalid_token(invalid_token, setup_create_country):
 @pytest.mark.api_automation
 def test_create_city_without_token(no_token, setup_create_country):
     # Usa el country_id generado en el setup
-    _, country_id = setup_create_country
+    country_id = setup_create_country
     country_data = generate_city_data(country_id)
 
     headers = {

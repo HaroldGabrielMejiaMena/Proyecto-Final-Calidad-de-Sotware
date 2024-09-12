@@ -49,7 +49,7 @@ def test_update_department(headers, setup_create_country, setup_create_departmen
     assert_id_not_none(department_id)
 
     # Usamos el country_id del setup_create_country que se genera dinámicamente
-    _, country_id = setup_create_country  # Obtener el country_id creado
+    country_id = setup_create_country  # Obtener el country_id creado
 
     # Datos actualizados
     updated_name = "Updated Department Name"

@@ -17,12 +17,34 @@ def post_create_a_country(headers, name, available):
         response = requests.post(url, headers=headers, data=payload)
         return response
 
+def get_all_countries(headers):
+        url = f"{config.BASE_URL_BE}/Country/paginated"
+        response = requests.get(url, headers=headers)
+        return response
+
     
 
 def get_country_by_id(headers, country_id):
         url = f"{config.BASE_URL_BE}/Country/{country_id}"
         response = requests.get(url, headers=headers)
-        return response.json()
+        return response
+    
+    
+def get_country_by_name(headers, country_name):
+    url = f"{config.BASE_URL_BE}/Country/paginated?Name={country_name}&Page=1&PageSize=1"
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        raise Exception(f"Error al obtener brand por nombre: {response.status_code}")
+
+    data = response.json()
+
+    #print(f"Response JSON: {data}")
+
+    if "data" in data:
+        if data["data"]:
+            return data["data"][0]  
+    else:
+        raise Exception("No se encontró la clave 'data' en la respuesta.")
 
     
 def put_update_country(headers, country_id, name, available):

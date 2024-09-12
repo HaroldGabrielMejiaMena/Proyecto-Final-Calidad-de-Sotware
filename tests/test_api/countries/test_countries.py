@@ -1,5 +1,5 @@
 import pytest
-from main.api.utils.countries.country import post_create_a_country,put_update_country, delete_country, get_filtered_country
+from main.api.utils.countries.country import post_create_a_country,put_update_country, delete_country, get_filtered_country, get_country_by_id
 from main.api.assertions.general_assertions.general_assertions import assert_get_status_code_200, assert_response_empty,assert_get_status_code_401,assert_get_status_code_400, assert_get_status_code_405
 from tests.test_data.countries.country_data import generate_country_data
 import requests
@@ -14,16 +14,16 @@ def test_create_country_randon(headers):
  
 # Crear un country    
 @pytest.mark.api_automation
-def test_create_country_with_name(setup_create_country):
-    response, _ = setup_create_country
+def test_create_country_with_name(headers, setup_create_country):
+    country_id = setup_create_country
+    response = get_country_by_id(headers, country_id)
     assert_get_status_code_200(response)
-    assert_response_empty(response)
 
 # Actualizar un country
 @pytest.mark.api_automation
 def test_update_country(headers, setup_create_country):
     # Obtener el ID del country creado
-    _, country_id = setup_create_country
+    country_id = setup_create_country
     updated_name = "UpdatedCountry"
     updated_available = False
     
