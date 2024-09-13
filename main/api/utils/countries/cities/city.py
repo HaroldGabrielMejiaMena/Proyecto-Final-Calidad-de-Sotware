@@ -64,3 +64,18 @@ def get_paginated_cities(headers, page_number=1, page_size=10):
     }
     response = requests.get(url, headers=headers, params=params)
     return response.json()
+
+
+def get_city_by_name(headers, city_name):
+    url = f"{config.BASE_URL_BE}/City/paginated?Name={city_name}&Page=1&PageSize=1"
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        raise Exception(f"Error al obtener city por nombre: {response.status_code}")
+
+    data = response.json()
+
+    if "data" in data:
+        if data["data"]:
+            return data["data"][0]  
+    else:
+        raise Exception("No se encontró la clave 'data' en la respuesta.")
