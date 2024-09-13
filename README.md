@@ -7,3 +7,6 @@ pytest -s -m ui_automation -n 4
 
 # Ejecutar las pruebas en un solo Navegador
 pytest -s -m ui_automation 
+
+# Ejecutar eñ reporte de allure
+allure serve reports

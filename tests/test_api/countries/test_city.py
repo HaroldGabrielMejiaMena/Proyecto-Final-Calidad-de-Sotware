@@ -33,7 +33,7 @@ def test_create_city(headers,setup_create_city):
 
 # Actualizar un city
 @pytest.mark.api_automation
-def test_update_city(headers, setup_create_city, setup_get_id_country):
+def test_update_city(headers, setup_create_city, setup_create_country):
     # Obtener el ID del city creado
     city_id = setup_create_city  # Recibe el city_id directamente
     assert_id_not_none(city_id)
@@ -42,7 +42,7 @@ def test_update_city(headers, setup_create_city, setup_get_id_country):
     updated_available = False
 
     # Usa el country_id obtenido de la fixture setup_get_id_country
-    country_id = setup_get_id_country
+    country_id = setup_create_country
 
     # Actualizar el city
     response = put_update_city(headers, city_id, updated_name, updated_available, country_id)
@@ -62,7 +62,7 @@ def test_delete_city(headers, setup_create_city):
 @pytest.mark.api_automation
 def test_create_city_with_invalid_token(invalid_token, setup_create_country):
     # Usa el country_id generado en el setup
-    _, country_id = setup_create_country
+    country_id = setup_create_country
     country_data = generate_city_data(country_id)
 
     headers = {
@@ -81,7 +81,7 @@ def test_create_city_with_invalid_token(invalid_token, setup_create_country):
 @pytest.mark.api_automation
 def test_create_city_without_token(no_token, setup_create_country):
     # Usa el country_id generado en el setup
-    _, country_id = setup_create_country
+    country_id = setup_create_country
     country_data = generate_city_data(country_id)
 
     headers = {

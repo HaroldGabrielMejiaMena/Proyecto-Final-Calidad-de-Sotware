@@ -16,8 +16,6 @@ def assert_department_name_updated(department_data, expected_name):
     """
     Valida que el nombre del departamento se haya actualizado correctamente.
     
-    :param department_data: Datos del departamento obtenidos de la respuesta.
-    :param expected_name: El nombre que se espera después de la actualización.
     """
     assert department_data["name"] == expected_name, (
         f"Error: el nombre no se actualizó correctamente. Se esperaba {expected_name} pero se obtuvo {department_data['name']}."
@@ -28,11 +26,17 @@ def assert_department_country_id_updated(department_data, expected_country_id):
     """
     Valida que el `countryId` del departamento se haya actualizado correctamente.
     
-    :param department_data: Datos del departamento obtenidos de la respuesta.
-    :param expected_country_id: El `countryId` que se espera después de la actualización.
     """
     assert department_data["countryId"] == expected_country_id, (
         f"Error: el countryId no se actualizó correctamente. Se esperaba {expected_country_id} pero se obtuvo {department_data['countryId']}."
     )
 
+def assert_department_found(filtered_response, department_name):
+    """
+    Verifica que el departamento haya sido encontrado en la respuesta filtrada.
+    Si no se encuentra, lanza una excepción con un mensaje de error adecuado.
+    
+    """
+    if not filtered_response:
+        raise AssertionError(f"No se encontró el departamento con el nombre: {department_name}")
 
