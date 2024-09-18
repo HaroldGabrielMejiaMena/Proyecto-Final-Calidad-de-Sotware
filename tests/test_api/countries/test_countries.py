@@ -57,7 +57,7 @@ def test_delete_country_with_city(headers, setup_create_country):
     assert_get_status_code_200(response_after_city_deletion)  
 
 
-"""# Prueba para validar que no se puede eliminar un country si tiene departamentos registrados
+# Prueba para validar que no se puede eliminar un country si tiene departamentos registrados
 @pytest.mark.api_automation
 def test_delete_country_with_department(headers, setup_create_country):
     country_id = setup_create_country
@@ -83,7 +83,7 @@ def test_delete_country_with_department(headers, setup_create_country):
     
     # Intentar nuevamente eliminar el country 
     response_after_department_deletion = delete_country(headers, country_id)
-    assert_get_status_code_200(response_after_department_deletion)  """
+    assert_get_status_code_200(response_after_department_deletion)  
 
 # Prueba para validar la eliminación exitosa de un country
 @pytest.mark.api_automation
@@ -143,7 +143,7 @@ def test_update_country_with_duplicate_name(headers, setup_create_country):
 @pytest.mark.api_automation
 def test_get_all_countries(headers):
     response = get_all_countries(headers)
-    assert_get_status_code_200(response)  # Validar que la respuesta sea exitosa
+    assert_get_status_code_200(response) 
     countries_data = response.json()["data"]
     assert isinstance(countries_data, list), "Error: expected a list of countries."
     assert len(countries_data) > 0, "Error: no countries found."

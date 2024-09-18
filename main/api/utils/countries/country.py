@@ -86,3 +86,16 @@ def get_filtered_country(headers, name=None, available=None):
         raise Exception(f"Error en la solicitud de filtrado: {response.status_code}")
     
     return response.json()
+
+
+def get_first_country_id(headers):
+    url = f"{config.BASE_URL_BE}/Country/paginated"
+    response = requests.get(url, headers=headers)
+
+    data = response.json().get("data", [])
+    
+    if len(data) == 0:
+        raise Exception("No se encontraron países en la respuesta")
+
+    return data[0]["id"]
+
