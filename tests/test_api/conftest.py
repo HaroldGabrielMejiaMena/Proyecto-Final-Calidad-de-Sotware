@@ -75,7 +75,7 @@ def setup_create_city(headers, setup_create_country):
 
     # Ahora buscamos la ciudad recién creada filtrando por su nombre
     city_name = city_data["name"]
-    filtered_response = get_filtered_cities(headers, name=city_name)  # Cambiamos a filtrar por ciudad
+    filtered_response = get_filtered_cities(headers, name=city_name)  
 
     if not filtered_response:
         raise Exception(f"No se encontró la ciudad con el nombre: {city_name}")
