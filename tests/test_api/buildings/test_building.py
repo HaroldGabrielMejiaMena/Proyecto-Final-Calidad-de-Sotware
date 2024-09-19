@@ -47,15 +47,11 @@ def test_create_building_with_country_disabled(headers):
     country_id = country["id"]
     
     city_data = generate_city_data(country_id)  
-
-   
     city = post_create_a_city(headers, city_data["name"], city_data["available"], city_data["countryId"])
-    
     assert_get_status_code_200(city)
     city_name = city_data["name"]
     
     filtered_response = get_filtered_cities(headers, name=city_name)
-    
     city_id = filtered_response[0]["id"]
     building_data = generate_building_data()
     building = post_create_building(headers, building_data["name"], country_id, building_data["direction"], city_id)

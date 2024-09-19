@@ -40,7 +40,7 @@ def test_update_assettype_without_name(headers, setup_create_asset_type):
     
 @allure.title("Verificar que no se permita crear un activo diferente a CPU y Mobile")
 @pytest.mark.api_automation
-def test_update_assettype_with_diferent_category(headers):
+def test_create_assettype_with_diferent_category(headers):
     response = post_create_asset_type(headers, "Diferent Category", "4")
     assert_get_status_code_400(response) 
 
