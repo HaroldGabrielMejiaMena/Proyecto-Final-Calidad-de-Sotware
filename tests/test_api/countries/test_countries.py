@@ -43,7 +43,6 @@ def test_update_country(headers, setup_create_country):
     country_id = setup_create_country
     updated_name = "UpdatedCountry"
     updated_available = False
-    
     response = put_update_country(headers, country_id, updated_name, updated_available)
     assert_get_status_code_200(response)
 

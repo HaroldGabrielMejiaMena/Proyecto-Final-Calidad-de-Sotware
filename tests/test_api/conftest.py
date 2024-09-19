@@ -80,20 +80,12 @@ def setup_create_city(headers, setup_create_country):
 @pytest.fixture(scope="function")
 def setup_create_country(headers, request):
     country_data = generate_country_data()
-    
     response = post_create_a_country(headers, country_data["name"], country_data["available"])
-    
     assert response.status_code == 200 
-    
     country = get_country_by_name(headers, country_data["name"])
-    
     assert country is not None
-    
     country_id = country["id"]
-    
     def teardown():
-        delete_country(headers, country_id)
-    
+        delete_country(headers, country_id) 
     request.addfinalizer(teardown)
-    
     return country_id

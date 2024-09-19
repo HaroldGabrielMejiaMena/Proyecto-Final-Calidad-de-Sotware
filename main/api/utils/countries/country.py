@@ -4,15 +4,12 @@ import config
 
 
 def post_create_a_country(headers, name, available):
-
         url = f"{config.BASE_URL_BE}/Country"
-
         payload = json.dumps({
             "available": available,
             "name": name,
             "cities": []
         })
-
         response = requests.post(url, headers=headers, data=payload)
         return response
 
@@ -34,9 +31,7 @@ def get_country_by_name(headers, country_name):
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         raise Exception(f"Error al obtener country por nombre: {response.status_code}")
-
     data = response.json()
-
     if "data" in data:
         if data["data"]:
             return data["data"][0]  
@@ -79,12 +74,9 @@ def get_filtered_country(headers, name=None, available=None):
         params["name"] = name
     if available is not None:
         params["available"] = available
-
     response = requests.get(url, headers=headers, params=params)
-
     if response.status_code != 200:
         raise Exception(f"Error en la solicitud de filtrado: {response.status_code}")
-    
     return response.json()
 
 
