@@ -74,41 +74,29 @@ def test_delete_building(headers, setup_create_building):
 @allure.title("Verificar que se puedan editar los campos obligatorios del edificio")
 @pytest.mark.api_automation
 def test_update_building(headers, setup_create_building):
-    # Obtener el building_id desde el setup
     building_id = setup_create_building
     
-    # Obtener datos de un country y city válidos
     country_id, city_id = get_valid_country_and_city(headers)
     
-    # Generar datos aleatorios para el building
     updated_building_data = generate_building_data()
     
-    # Realizar la actualización del building
     response = put_update_building(headers, updated_building_data["name"], country_id, updated_building_data["direction"], city_id, building_id)
     
     assert_get_status_code_200(response)
     
-    # Verificar que el building se ha actualizado correctamente
     updated_building = get_building_by_name(headers, updated_building_data["name"])
-    assert_building_exists(updated_building)
     
-    # Validar que los campos actualizados sean correctos
+    assert_building_exists(updated_building)
     assert_building_matches_expected_data(updated_building, building_id, updated_building_data, city_id, country_id)
      
     
 @allure.title("Verificar que no se pueda guardar un edificio con campos obligatorios vacíos")
 @pytest.mark.api_automation
 def test_update_building_without_required_fields(headers, setup_create_building):
-    # Obtener el building_id desde el setup
     building_id = setup_create_building
     
-    # Obtener datos de un country y city válidos
     country_id, city_id = get_valid_country_and_city(headers)
     
-    # Generar datos aleatorios para el building
-    updated_building_data = generate_building_data()
-    
-    # Realizar la actualización del building
     response = put_update_building(headers, None, country_id, None, city_id, building_id)
     assert_get_status_code_400(response)
     

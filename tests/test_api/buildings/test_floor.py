@@ -12,7 +12,6 @@ def test_create_floor(headers, setup_create_floor):
     floor_id = setup_create_floor
     assert floor_id is not None, "El ID del building no debería ser None."
 
-    # Obtener el building creado para validaciones
     floor = get_floor_by_id(headers, floor_id)
     assert_get_status_code_200(floor)
 
@@ -64,5 +63,4 @@ def test_update_building(headers, setup_create_floor):
     assert_get_status_code_200(response)
     updated_floor_response = get_floor_by_id(headers, floor_id)
     updated_floor_data = updated_floor_response.json()
-    # Verificar si los cambios fueron aplicados correctamente
     assert_floor_updated_correctly(updated_floor_data, floor_data, floor_id, building_id)
