@@ -2,12 +2,9 @@ from core.ui.base_page import BasePage
 from selenium.webdriver.common.by import By
 
 class LoginPage(BasePage):
-    
-      #Locators
     USERNAME_FIELD = (By.ID, "Username")
     PASSWORD_FIELD = (By.ID, "passwordLogin")
-    LOGIN_BUTTON = (By.ID, "buttonLogin")
-    
+    LOGIN_BUTTON = (By.ID, "buttonLogin") 
     
     def enter_username(self, username):
         self.type_text(self.USERNAME_FIELD, username)
@@ -22,3 +19,4 @@ class LoginPage(BasePage):
         self.enter_username(username)
         self.enter_password(password)
         self.click_login()
+
