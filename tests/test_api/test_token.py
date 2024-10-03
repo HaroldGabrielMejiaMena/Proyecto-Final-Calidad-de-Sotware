@@ -2,7 +2,7 @@ import pytest
 from main.api.get_token import get_token
 
 
-@pytest.mark.api_automation
+#@pytest.mark.api_automation
 def test_obtener_token():
     # Llamar a la función para obtener el token
     token = get_token()
