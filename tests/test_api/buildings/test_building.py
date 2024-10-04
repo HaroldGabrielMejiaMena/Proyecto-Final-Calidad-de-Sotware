@@ -27,7 +27,7 @@ def test_create_building_without_fields(headers):
     assert_get_status_code_400(response)   
     
 
-@allure.title("Verificar la creación de edificio básica")
+@allure.title("Validar creación de un edificio con datos alfanuméricos")
 @pytest.mark.api_automation
 def test_create_building_with_alphanumeric_characters(headers, setup_create_country, setup_create_city):
     

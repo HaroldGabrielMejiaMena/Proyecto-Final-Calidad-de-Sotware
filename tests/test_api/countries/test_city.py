@@ -6,7 +6,7 @@ from main.api.utils.countries.cities.city import get_city_by_id, post_create_a_c
 from main.api.utils.countries.country import get_first_country_id
 
 
-@allure.title("Verificar la creación de un departamento con un nombre válido")   
+@allure.title("Verificar la creación de una ciudad con todos los campos válidos")   
 @pytest.mark.api_automation
 def test_create_city_with_name(headers, setup_create_city):
     city_id = setup_create_city
