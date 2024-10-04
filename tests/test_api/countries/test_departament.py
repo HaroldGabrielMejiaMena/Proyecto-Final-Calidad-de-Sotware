@@ -7,7 +7,7 @@ from main.api.utils.countries.departaments.departaments import post_create_a_dep
 from main.api.assertions.countries.departament_asstertions import assert_department_id_matches, assert_department_has_required_fields, assert_department_country_id_updated, assert_department_name_updated
 
 
-@allure.title("Verificar la creación de una ciudad con todos los campos válidos")
+@allure.title("Verificar la creación de un departamento con un nombre válido")
 @pytest.mark.api_automation
 def test_create_department(headers, setup_create_department):
     department_id = setup_create_department
