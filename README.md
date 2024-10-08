@@ -1,4 +1,3 @@
-# Qace-OrangeHRM
 # Ejecutar el comando para instalar lo necesario para ejecutar el proyecto
 pip install -r requirements.txt
 
