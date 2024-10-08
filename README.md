@@ -9,3 +9,6 @@ pytest -s -m ui_automation
 
 # Ejecutar el reporte de allure
 allure serve reports
+
+# Ejecutar las pruebas API
+pytest -m api_automation 
